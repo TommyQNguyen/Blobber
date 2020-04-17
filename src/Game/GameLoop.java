@@ -43,7 +43,7 @@ public class GameLoop implements Runnable{
 		try {
 			while (!isOver) {			
 				notifyObservers();
-				Thread.sleep(1000);	// A quel vitesse roule le jeu (200 est l'original)
+				Thread.sleep(300);	// A quel vitesse roule le jeu (200 est l'original)
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();

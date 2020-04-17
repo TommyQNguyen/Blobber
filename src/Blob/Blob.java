@@ -8,6 +8,8 @@ import Game.Game;
 public class Blob extends ABlob{
 	private int x, y, diameter;
 
+	// A regler le tableau de scores aussi
+	
 	public Blob(int ticksCounter, int damage, int hp, int score, int x, int y, int diameter, Game game) {
 		super(ticksCounter, damage, hp, score, game);
 		this.color = Color.MAGENTA;
@@ -22,7 +24,4 @@ public class Blob extends ABlob{
 		g.setColor(color);
 		g.fillOval(0, 0, diameter, diameter);
 	}
-	
-	
-	
 }

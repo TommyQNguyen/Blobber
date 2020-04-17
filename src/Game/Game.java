@@ -57,6 +57,7 @@ public class Game implements LoopObserver {
 			System.out.println("Ticks before new blob: " + ticksBeforeNewBlob);
 			System.out.println("Player current HP: " + player.getHP());
 			System.out.println("Get current cursor damage: " + c.getDamage());
+			System.out.println("Player current score: " + player.getScore());
 		} else {	
 			System.out.println("Creation d'un blob");
 			ABlob b = blobFactory.createBlob(this);

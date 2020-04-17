@@ -15,6 +15,8 @@ public abstract class ABlob extends JLabel implements LoopObserver {
 	protected int score;
 	protected Game game;
 	protected Color color;
+	protected final int HEALTH_BAR_HEIGHT = 10;	// Taille de la barre de vie pour qu'on puisse le voir
+	private final int ZERO = 0; 				// Magic numbers
 	
 	public ABlob(int ticksCounter, int damage, int hp, int score, Game game) {
 		super();
@@ -41,7 +43,9 @@ public abstract class ABlob extends JLabel implements LoopObserver {
 	protected abstract void drawBlob(Graphics g);
 
 	protected void drawHealthBar(Graphics g) {
-		// TRAVAIL ETU
+		g.setColor(Color.GREEN);
+		g.fillRect(ZERO, ZERO, hp, HEALTH_BAR_HEIGHT);			// hp est la largeur et reduit quand il se fait attaquer
+		System.out.println("Dans la methode drawHealthBar()");
 	};
 
 	public void pop() {
