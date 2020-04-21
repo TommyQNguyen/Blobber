@@ -71,6 +71,8 @@ public class BlobFactory {
 			return bonusBlob(game);							// Entier 0 dans le tableau represente bonusBlob
 		case 1:
 			return poisonBlob(game);						// Entier 1 representera PoisonBlob
+		case 2:
+			return movingBlob(game);
 		default:
 			return blob(game);								// Cree par defaut des blobs reguliers
 		}
@@ -80,24 +82,30 @@ public class BlobFactory {
 		int blobDiameter = w();
 		Blob blob = new Blob(ticks(),damage(),currentHP,currentHP,x(blobDiameter),y(blobDiameter),blobDiameter,game);
 		blob.addMouseListener(new SingleClickPopper(blob));
-		System.out.println("blob ticks: " + blob.ticksCounter);
 		return blob;
 	}
 	private BonusBlob bonusBlob(Game game) {
-		int bonusBlobWeight = w();
+		int bonusBlobWidth = w();
 		int bonusBlobHeight = h();
 		BonusBlob bonusBlob = new BonusBlob(
-				ticks(),damage(),currentHP,currentHP,x(bonusBlobWeight),y(bonusBlobHeight),bonusBlobWeight,bonusBlobHeight,game);
+				ticks(),damage(),currentHP,currentHP,x(bonusBlobWidth),y(bonusBlobHeight),bonusBlobWidth,bonusBlobHeight,game);
 		bonusBlob.addMouseListener(new SingleClickPopper(bonusBlob));
 		return bonusBlob;	
 	}
 	private PoisonBlob poisonBlob(Game game) {
-		int poisonBlobWeight = w();
+		int poisonBlobWidth = w();
 		int poisonBlobHeight = h();
 		PoisonBlob poisonBlob = new PoisonBlob(
-				ticks(),damage(),currentHP,currentHP,x(poisonBlobWeight),y(poisonBlobHeight),poisonBlobWeight,poisonBlobHeight,game);
+				ticks(),damage(),currentHP,currentHP,x(poisonBlobWidth),y(poisonBlobHeight),poisonBlobWidth,poisonBlobHeight,game);
 		poisonBlob.addMouseListener(new MouseEnterPopper(poisonBlob));
 		return poisonBlob;
 	}
+	private MovingBlob movingBlob(Game game) {
+		int movingBlobDiameter = w();
+		MovingBlob movingBlob = new MovingBlob(ticks(),damage(),currentHP,currentHP,x(movingBlobDiameter),y(movingBlobDiameter),movingBlobDiameter,game);
+		movingBlob.addMouseListener(new SingleClickPopper(movingBlob));
+		return movingBlob;
+	}
+	
 	
 }

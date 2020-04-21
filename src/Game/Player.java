@@ -1,7 +1,7 @@
 package Game;
 
 public class Player {
-	private final int MAX_HP = 10000;	// TEMPORAIRE, HP original: 50
+	private final int MAX_HP = 1000;	// Points de vie du joueur. HP original: 50.
 	private String name;
 	private int currentHp, score;
 	
@@ -24,7 +24,7 @@ public class Player {
 	}
 	
 	public void addScore(int score) {
-		score+=score;
+		this.score+=score;
 	}
 	
 	public void removeHp(int hp) {

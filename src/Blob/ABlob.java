@@ -45,7 +45,6 @@ public abstract class ABlob extends JLabel implements LoopObserver {
 	protected void drawHealthBar(Graphics g) {
 		g.setColor(Color.GREEN);
 		g.fillRect(ZERO, ZERO, hp, HEALTH_BAR_HEIGHT);			// hp est la largeur et reduit quand il se fait attaquer
-		System.out.println("Dans la methode drawHealthBar()");
 	};
 
 	public void pop() {

@@ -16,7 +16,6 @@ public class SingleClickPopper implements MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		b.hit();		
-		System.out.println("Clicked!!");
 	}
 
 	@Override public void mousePressed(MouseEvent e) {}

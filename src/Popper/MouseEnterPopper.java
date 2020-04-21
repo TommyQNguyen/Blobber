@@ -21,8 +21,6 @@ public class MouseEnterPopper implements MouseListener {
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		b.pop();
-		System.out.println("Entered!!");
-
 	}
 
 	@Override public void mouseExited(MouseEvent e) {}

@@ -8,6 +8,8 @@ import Blob.BlobFactory;
 import Cursor.ACursorDecorator;
 import Cursor.BaseCursor;
 import Cursor.ICursor;
+import HighScore.HighScoresManager;
+import HighScore.Score;
 import Popper.SingleClickPopper;
 import UI.*;
 
@@ -18,10 +20,15 @@ public class Game implements LoopObserver {
 	private Player player;
 	private GameFrame gameFrame;
 	private BlobFactory blobFactory; 
+	private HighScoresManager hsm;
+	private PlayerFrame playerFrame;
 	
 	public Game () {
+		hsm = new HighScoresManager();
 		appWindow = new AppWindow(this);
+		appWindow.showScore(hsm.getScores());
 		gameFrame = new GameFrame();
+		playerFrame = new PlayerFrame();
 	}
 	
 	public void startGame(String name) {
@@ -30,6 +37,7 @@ public class Game implements LoopObserver {
 		player = new Player(name);
 		GameLoop.getInstance().registerObserver(this);
 		gameFrame.setVisible(true);
+		playerFrame.setVisible(true);
 		Thread t = new Thread(GameLoop.getInstance());
 		t.start();
 		ticksBeforeNewBlobCounter = 20;
@@ -37,7 +45,10 @@ public class Game implements LoopObserver {
 	}
 	
 	public void endGame() {
+		hsm.addScore(new Score(player.getScore(), player.getName()));
+		appWindow.showScore(hsm.getScores());
 		gameFrame.setVisible(false);
+		playerFrame.setVisible(false);
 		GameLoop.getInstance().endGame();
 		gameFrame.removeAllBlobs();
 	}
@@ -50,16 +61,11 @@ public class Game implements LoopObserver {
 	public void tick() {
 		if (player.getHP() <0) {
 			endGame();
-			System.out.println("tick: End Game");
 		}
 		if (ticksBeforeNewBlob > 0) {
 			ticksBeforeNewBlob--;
-			System.out.println("Ticks before new blob: " + ticksBeforeNewBlob);
-			System.out.println("Player current HP: " + player.getHP());
-			System.out.println("Get current cursor damage: " + c.getDamage());
-			System.out.println("Player current score: " + player.getScore());
 		} else {	
-			System.out.println("Creation d'un blob");
+			System.out.println("Creation dun blob");
 			ABlob b = blobFactory.createBlob(this);
 			gameFrame.addBlob(b);
 			
@@ -67,6 +73,9 @@ public class Game implements LoopObserver {
 			ticksBeforeNewBlobCounter -= 1;
 			ticksBeforeNewBlob = ticksBeforeNewBlobCounter;
 		}
+		playerFrame.setScore(player.getScore());							// Met les scores a jour a chaque tick()
+		playerFrame.setHP(player.getHP());									// Met le HP a jour a chaque tick()
+		System.out.println("Ticks before new blob: " + ticksBeforeNewBlob);
 	}
 
 	public void removeBlobFromGame(ABlob b) {

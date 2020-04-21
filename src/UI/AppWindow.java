@@ -10,6 +10,7 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 
 import Game.Game;
+import HighScore.Score;
 
 import javax.swing.JTextField;
 
@@ -36,7 +37,7 @@ public class AppWindow {
 	private void initialize() {
 		frmBlobber = new JFrame();
 		frmBlobber.setTitle("Blobber");
-		frmBlobber.setBounds(600, 100, 800, 600);
+		frmBlobber.setBounds(600, 100, 800, 600);					// A changer: (100, 100, 800, 600)
 		frmBlobber.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmBlobber.getContentPane().setLayout(null);
 		
@@ -76,7 +77,17 @@ public class AppWindow {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			game.startGame(iName.getText());
+		}	
+	}
+	
+	public void showScore(ArrayList<Score> scores) {
+		String list = "<html>";
+		for (Score s: scores) {
+			list += s.getName();
+			list += " : ";
+			list += String.valueOf(s.getScore());
 		}
-		
+		list += "</html>";
+		scoresList.setText(list);
 	}
 }

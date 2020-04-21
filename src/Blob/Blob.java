@@ -7,8 +7,6 @@ import Game.Game;
 
 public class Blob extends ABlob{
 	private int x, y, diameter;
-
-	// A regler le tableau de scores aussi
 	
 	public Blob(int ticksCounter, int damage, int hp, int score, int x, int y, int diameter, Game game) {
 		super(ticksCounter, damage, hp, score, game);
