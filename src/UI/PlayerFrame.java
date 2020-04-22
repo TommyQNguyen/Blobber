@@ -23,30 +23,28 @@ public class PlayerFrame extends JFrame {
 	
 	private void initialize() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(600, 50, 800, 50);
+		setBounds(100, 51, 800, 50);
 		setUndecorated(true);
-		setBackground(Color.PINK);
 		getContentPane().setLayout(null);
 		
-		lblScore = new JLabel("Player score: ");
+		lblScore = new JLabel("Votre score: ");
 		lblScore.setForeground(Color.BLUE);
 		lblScore.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		lblScore.setBounds(10, 10, 169, 59);
 		getContentPane().add(lblScore);
 		
-		lblPlayerHP = new JLabel("Player HP: ");
+		lblPlayerHP = new JLabel("Points de vie: ");
 		lblPlayerHP.setForeground(Color.BLUE);
 		lblPlayerHP.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblPlayerHP.setBounds(221, 17, 169, 40);
+		lblPlayerHP.setBounds(631, 19, 169, 40);
 		getContentPane().add(lblPlayerHP);
 	}
 	
 	public void setScore (int score) {
-		lblScore.setText("Player score: " + score);
+		lblScore.setText("Votre score: " + score);
 	}
 	
 	public void setHP (int hp) {
-		lblPlayerHP.setText("Player HP: " + hp);
+		lblPlayerHP.setText("Points de vie: " + hp);
 	}
-	
 }

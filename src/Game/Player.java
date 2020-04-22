@@ -1,7 +1,7 @@
 package Game;
 
 public class Player {
-	private final int MAX_HP = 1000;	// Points de vie du joueur. HP original: 50.
+	private final int MAX_HP = 50;	// Points de vie du joueur. HP original: 50.
 	private String name;
 	private int currentHp, score;
 	

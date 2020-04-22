@@ -59,7 +59,7 @@ public class Game implements LoopObserver {
 
 	@Override
 	public void tick() {
-		if (player.getHP() <0) {
+		if (player.getHP() < 0) {
 			endGame();
 		}
 		if (ticksBeforeNewBlob > 0) {
@@ -75,7 +75,6 @@ public class Game implements LoopObserver {
 		}
 		playerFrame.setScore(player.getScore());							// Met les scores a jour a chaque tick()
 		playerFrame.setHP(player.getHP());									// Met le HP a jour a chaque tick()
-		System.out.println("Ticks before new blob: " + ticksBeforeNewBlob);
 	}
 
 	public void removeBlobFromGame(ABlob b) {

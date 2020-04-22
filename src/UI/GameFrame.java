@@ -21,7 +21,7 @@ public class GameFrame extends JFrame {
 	
 	private void initialize() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(600, 100, 800, 600);
+		setBounds(100, 100, 800, 600);
 		setUndecorated(true);
 	}
 	

@@ -80,7 +80,8 @@ public class BlobFactory {
 	
 	private Blob blob(Game game) {
 		int blobDiameter = w();
-		Blob blob = new Blob(ticks(),damage(),currentHP,currentHP,x(blobDiameter),y(blobDiameter),blobDiameter,game);
+		Blob blob = new Blob(
+				ticks(),damage(),currentHP,currentHP,x(blobDiameter),y(blobDiameter),blobDiameter,game);
 		blob.addMouseListener(new SingleClickPopper(blob));
 		return blob;
 	}
@@ -102,10 +103,12 @@ public class BlobFactory {
 	}
 	private MovingBlob movingBlob(Game game) {
 		int movingBlobDiameter = w();
-		MovingBlob movingBlob = new MovingBlob(ticks(),damage(),currentHP,currentHP,x(movingBlobDiameter),y(movingBlobDiameter),movingBlobDiameter,game);
+		final int x_Initial = 50;
+		final int ticks_movingBlob = 150;	 // Pour qu'il eclate rendu a la droite et endommage le joueur
+		
+		MovingBlob movingBlob = new MovingBlob(
+				ticks_movingBlob,damage(),currentHP,currentHP,x_Initial,y(movingBlobDiameter),movingBlobDiameter,game);
 		movingBlob.addMouseListener(new SingleClickPopper(movingBlob));
 		return movingBlob;
 	}
-	
-	
 }

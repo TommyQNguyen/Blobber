@@ -7,10 +7,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Timer;
 
+import Cursor.CursorBonus;
 import Game.Game;
 
 public class MovingBlob extends ABlob {
 	private int x, y, diameter;
+	private final int deplacementBlob = 4;
 	
 	public MovingBlob(int ticksCounter, int damage, int hp, int score, int x, int y, int diameter, Game game) {
 		super(ticksCounter, damage, hp, score, game);
@@ -31,12 +33,17 @@ public class MovingBlob extends ABlob {
 		g.fillOval(0, 0, diameter, diameter);
 	}
 	
+	@Override
+	public void pop() {
+		super.pop();
+	}
+	
 	private class Ecouteur implements ActionListener {
 		
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			
-			x = x + 10;	// Pour que le nouveau blob s'enfuit a gauche
+			x = x + deplacementBlob;	// Pour que le nouveau blob s'enfuit a gauche
 
 			repaint();
 		}	

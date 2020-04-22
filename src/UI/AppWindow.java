@@ -37,7 +37,7 @@ public class AppWindow {
 	private void initialize() {
 		frmBlobber = new JFrame();
 		frmBlobber.setTitle("Blobber");
-		frmBlobber.setBounds(600, 100, 800, 600);					// A changer: (100, 100, 800, 600)
+		frmBlobber.setBounds(100, 100, 800, 600);					// Default: (100, 100, 800, 600)
 		frmBlobber.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmBlobber.getContentPane().setLayout(null);
 		
@@ -62,7 +62,7 @@ public class AppWindow {
 		iName.setBounds(10, 358, 764, 53);
 		iName.setHorizontalAlignment(SwingConstants.CENTER);
 		iName.setFont(new Font("Tahoma", Font.PLAIN, 55));
-		iName.setText("Hana");
+		iName.setText("Tommy");
 		iName.setToolTipText("Ton Nom");
 		iName.setColumns(10);
 		frmBlobber.getContentPane().add(iName);
@@ -86,6 +86,7 @@ public class AppWindow {
 			list += s.getName();
 			list += " : ";
 			list += String.valueOf(s.getScore());
+			list += "<br />";
 		}
 		list += "</html>";
 		scoresList.setText(list);
